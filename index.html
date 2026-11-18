@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Little Gift For Only You</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- NỀN TRANG 1 VÀ TRANG 2 -->
+    <div class="background">
+      <span class="decoration">💜</span>
+      <span class="decoration">⭐</span>
+      <span class="decoration">🧀</span>
+      <span class="decoration">💗</span>
+      <span class="decoration">🌳</span>
+      <span class="decoration">✨</span>
+      <span class="decoration">🧀</span>
+      <span class="decoration">💖</span>
+    </div>
+
+    <main>
+      <!-- TRANG 1: HỘP QUÀ -->
+      <section class="gift-page" id="giftPage">
+        <h1>A Little Gift For Only You</h1>
+
+        <div class="gift-container">
+          <div class="gift-box" id="giftBox">
+            <div class="gift-lid"></div>
+            <div class="gift-body"></div>
+            <div class="gift-ribbon"></div>
+          </div>
+        </div>
+
+        <button id="openButton">🎁 ẤN ĐỂ MỞ 🎁</button>
+
+        <p class="hint">Có một món quà nhỏ dành cho CỤC PHÔ MAI...</p>
+      </section>
+
+      <!-- TRANG 2: CÂY ĐÀO -->
+      <section class="surprise-page" id="surprisePage">
+        <div class="heart-tree">
+          <canvas id="treeCanvas"></canvas>
+        </div>
+
+        <h1 class="wish">Chúc bạn luôn vui vẻ và hạnh phúc!</h1>
+
+        <p class="message">
+          Mong rằng mỗi ngày của bạn đều có thật nhiều niềm vui,luôn cười and
+          luôn xinh đẹp :)))) 💜
+        </p>
+
+        <button id="nextButton">✨ TIẾP TỤC ✨</button>
+      </section>
+
+      <!-- TRANG 3: VŨ TRỤ TRÁI TIM 3D -->
+      <section class="universe-page" id="universePage">
+        <!-- NỀN VŨ TRỤ -->
+        <canvas id="space"></canvas>
+
+        <!-- NÚT TRÁI TIM -->
+        <button id="messageHeartButton" aria-label="Mở lời nhắn">❤️</button>
+
+        <!-- BẢNG LỜI NHẮN -->
+
+        <div class="message-wrapper">
+          <div id="messageCard">
+            <!-- BIỂU TƯỢNG ĐẦU BẢNG -->
+            <div class="message-icons">❤️ 🧀</div>
+
+            <!-- NỘI DUNG LỜI CHÚC -->
+            <div id="messageText"></div>
+          </div>
+
+          <button id="nextWishButton">➜</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- LỚP PHỦ CHUYỂN TRANG -->
+    <div id="pageTransition"></div>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+  </body>
+</html>

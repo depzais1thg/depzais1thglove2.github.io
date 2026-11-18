@@ -1,0 +1,1187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+
+  background: radial-gradient(circle at center, #8429c9, #430078, #16002d);
+
+  color: white;
+}
+
+/* BACKGROUND */
+
+.background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.decoration {
+  position: absolute;
+  font-size: 30px;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+.decoration:nth-child(1) {
+  top: 15%;
+  left: 10%;
+}
+
+.decoration:nth-child(2) {
+  top: 20%;
+  right: 15%;
+}
+
+.decoration:nth-child(3) {
+  bottom: 20%;
+  left: 15%;
+}
+
+.decoration:nth-child(4) {
+  top: 50%;
+  left: 5%;
+}
+
+.decoration:nth-child(5) {
+  bottom: 10%;
+  right: 15%;
+}
+
+.decoration:nth-child(6) {
+  top: 10%;
+  right: 40%;
+}
+
+.decoration:nth-child(7) {
+  bottom: 35%;
+  right: 7%;
+}
+
+.decoration:nth-child(8) {
+  top: 65%;
+  left: 25%;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* GIFT PAGE */
+
+.gift-page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+
+  transition: 1s;
+}
+
+.gift-page h1 {
+  font-size: 35px;
+
+  text-shadow:
+    0 0 10px #ff7bff,
+    0 0 25px #e000ff;
+}
+
+/* GIFT BOX */
+
+.gift-container {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gift-box {
+  width: 150px;
+  height: 140px;
+  position: relative;
+
+  animation: giftFloat 2s infinite ease-in-out;
+}
+
+.gift-body {
+  width: 150px;
+  height: 105px;
+
+  position: absolute;
+  bottom: 0;
+
+  background: linear-gradient(135deg, #ff55d9, #a000ff);
+
+  border: 3px solid #ffb4ff;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 0 15px #ff00dd,
+    0 0 35px #ff00dd;
+}
+
+.gift-lid {
+  position: absolute;
+
+  width: 170px;
+  height: 35px;
+
+  left: -10px;
+  top: 10px;
+
+  background: #ff75e5;
+
+  border-radius: 8px;
+
+  border: 3px solid white;
+
+  z-index: 3;
+
+  transition: 1s;
+}
+
+.gift-ribbon {
+  position: absolute;
+
+  width: 25px;
+  height: 140px;
+
+  background: #ffe66d;
+
+  left: 62px;
+  top: 0;
+
+  z-index: 2;
+}
+
+@keyframes giftFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* BUTTON */
+
+button {
+  padding: 15px 35px;
+
+  border: 2px solid white;
+  border-radius: 30px;
+
+  background: linear-gradient(90deg, #ff00cc, #8e2de2);
+
+  color: white;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow: 0 0 20px #ff00dd;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+
+  box-shadow:
+    0 0 20px #ff00dd,
+    0 0 40px #ff00dd;
+}
+
+.hint {
+  color: #f5caff;
+  font-size: 14px;
+}
+
+/* OPEN GIFT */
+
+.gift-box.opened .gift-lid {
+  transform: translateY(-110px) rotate(-20deg);
+}
+
+.gift-page.hide {
+  opacity: 0;
+  transform: scale(0.5);
+
+  pointer-events: none;
+}
+
+/* SURPRISE PAGE */
+
+.surprise-page {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 1s;
+}
+
+.surprise-page.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* HEART TREE */
+
+.heart-tree {
+  position: relative;
+
+  width: min(98vw, 1200px);
+
+  height: min(75vh, 760px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-top: 0;
+
+  flex: 0 0 auto;
+}
+
+#treeCanvas {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+}
+
+/* SURPRISE PAGE */
+
+.surprise-page {
+  padding: 10px;
+  overflow: hidden;
+  gap: 8px;
+}
+
+/* WISH */
+
+.wish {
+  font-size: clamp(21px, 3.5vw, 35px);
+
+  text-align: center;
+
+  margin-top: 5px;
+}
+
+.message {
+  max-width: 600px;
+
+  text-align: center;
+
+  line-height: 1.6;
+
+  font-size: 15px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .heart-tree {
+    width: 100vw;
+
+    height: 60vh;
+
+    margin-top: 10px;
+  }
+
+  .wish {
+    font-size: 22px;
+  }
+
+  .message {
+    font-size: 13px;
+  }
+}
+
+/* WISH */
+
+.wish {
+  font-size: 35px;
+
+  color: #fff;
+
+  text-shadow:
+    0 0 10px #ff00dd,
+    0 0 25px #ff00dd;
+
+  animation: appear 2s;
+}
+
+.message {
+  margin-top: 15px;
+
+  color: #f5caff;
+  text-align: center;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FALLING HEARTS */
+
+.falling-heart {
+  position: fixed;
+
+  top: -30px;
+
+  font-size: 22px;
+
+  pointer-events: none;
+
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gift-page h1 {
+    font-size: 25px;
+  }
+
+  .wish {
+    font-size: 26px;
+  }
+
+  .heart-tree {
+    transform: scale(0.85);
+  }
+}
+
+/* CANVAS TREE */
+
+.heart-tree {
+  position: relative;
+  width: min(95vw, 750px);
+  height: min(68vh, 620px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#treeCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* SURPRISE PAGE */
+
+.surprise-page {
+  overflow: hidden;
+  padding: 15px;
+  gap: 10px;
+}
+
+/* BACKGROUND NEON */
+
+body {
+  background: radial-gradient(circle at 50% 40%, #a43de8, #6800a8, #21003d);
+}
+
+/* FLOATING EMOJI */
+
+.decoration {
+  position: absolute;
+  font-size: 30px;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #ff8bff);
+}
+
+.decoration:nth-child(even) {
+  animation-duration: 5s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-22px) rotate(8deg);
+  }
+}
+
+/* WISH */
+
+.wish {
+  font-size: clamp(20px, 4vw, 35px);
+  text-align: center;
+  text-shadow:
+    0 0 10px #ff00dd,
+    0 0 25px #ff00dd;
+}
+
+.message {
+  max-width: 600px;
+  line-height: 1.6;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .heart-tree {
+    width: 100vw;
+    height: 55vh;
+  }
+
+  .wish {
+    font-size: 23px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+}
+
+/* LỚP CHUYỂN TRANG */
+
+#pageTransition {
+  position: fixed;
+  inset: 0;
+  background: #080010;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+#pageTransition.active {
+  opacity: 1;
+}
+
+/* ==================================================
+   TRANG 3 - VŨ TRỤ TRÁI TIM 3D
+   ================================================== */
+
+.universe-page {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow: hidden;
+  background: #08020d;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease;
+}
+
+.universe-page.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#space {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* NÚT TIẾP TỤC Ở TRANG 2 */
+
+#nextButton {
+  position: relative;
+  z-index: 2;
+  margin-top: 12px;
+}
+
+#nextButton:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+/* ĐIỀU CHỈNH BỐ CỤC TRANG 2 */
+
+.surprise-page {
+  gap: 6px;
+}
+
+.heart-tree {
+  width: min(95vw, 850px);
+  height: min(58vh, 560px);
+}
+
+@media (max-width: 600px) {
+  .heart-tree {
+    height: 48vh;
+  }
+
+  #nextButton {
+    padding: 12px 26px;
+    font-size: 15px;
+  }
+}
+
+/* HIỆU ỨNG HIỆN TỪNG TỪ */
+
+.wish .word,
+.message .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.wish .word.visible,
+.message .word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TẮT HIỆU ỨNG XUẤT HIỆN CŨ CỦA TIÊU ĐỀ */
+
+.wish {
+  animation: none;
+}
+
+/* ẨN NÚT TIẾP TỤC BAN ĐẦU */
+
+#nextButton {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
+}
+
+/* HIỆN NÚT SAU KHI CHỮ CHẠY XONG */
+
+#nextButton.text-ready {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+/* ==================================================
+   TRANG 3 - NÚT TRÁI TIM VÀ BẢNG LỜI NHẮN
+   ================================================== */
+
+/* LỚP TỐI VÀ MỜ NỀN */
+
+#universePage::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.28);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 1.5s ease;
+
+  z-index: 1;
+}
+
+/* MỨC ĐỘ TỐI VÀ MỜ CỐ ĐỊNH */
+
+#universePage.message-mode::after {
+  opacity: 1;
+}
+
+#universePage.message-mode #space {
+  filter: brightness(0.65) blur(1.2px);
+
+  transform: scale(1.015);
+
+  transition:
+    filter 1.5s ease,
+    transform 1.5s ease;
+}
+
+/* NÚT TRÁI TIM */
+
+#messageHeartButton {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 3;
+
+  width: 90px;
+  height: 90px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  font-size: 65px;
+
+  cursor: pointer;
+
+  box-shadow: none;
+
+  animation: heartFloat 1.5s ease-in-out infinite;
+
+  filter: drop-shadow(0 0 12px #ff1744);
+
+  transition:
+    opacity 0.6s ease,
+    filter 0.6s ease;
+}
+
+/* TRÁI TIM NHẤP NHÔ */
+
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(-12px);
+  }
+}
+
+/* TRÁI TIM BIẾN MẤT */
+
+#messageHeartButton.hide {
+  opacity: 0;
+
+  pointer-events: none;
+
+  animation: none;
+}
+
+/* BẢNG LỜI NHẮN */
+
+#messageCard {
+  position: absolute;
+
+  top: 25%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(85vw, 600px);
+
+  height: 0;
+
+  overflow: hidden;
+
+  z-index: 3;
+
+  opacity: 0;
+
+  padding: 0 25px;
+
+  border: 1px solid rgba(255, 120, 220, 0.8);
+
+  border-radius: 20px;
+
+  background: rgba(25, 5, 40, 0.88);
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 200, 0.35),
+    0 0 35px rgba(150, 0, 255, 0.25);
+
+  transition:
+    height 0.35s ease,
+    opacity 0.7s ease,
+    padding 0.35s ease;
+}
+
+/* BẢNG XUẤT HIỆN */
+
+#messageCard.visible {
+  opacity: 1;
+
+  padding: 18px 25px;
+}
+
+/* ❤️ 🧀 */
+
+.message-icons {
+  text-align: center;
+
+  font-size: 20px;
+
+  margin-bottom: 12px;
+
+  text-shadow:
+    0 0 8px #ff4d9d,
+    0 0 15px #ff00dd;
+}
+
+/* NỘI DUNG LỜI CHÚC */
+
+#messageText {
+  color: white;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  text-align: center;
+
+  overflow-wrap: break-word;
+}
+
+/* MỖI DÒNG */
+
+.message-line {
+  display: block;
+
+  min-height: 1.8em;
+}
+
+/* TỪ XUẤT HIỆN */
+
+.message-word {
+  display: inline-block;
+
+  opacity: 0;
+
+  animation: wordAppear 0.35s ease forwards;
+}
+
+@keyframes wordAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ĐIỆN THOẠI */
+
+@media (max-width: 600px) {
+  #messageHeartButton {
+    font-size: 55px;
+
+    width: 75px;
+    height: 75px;
+  }
+
+  #messageCard {
+    width: 88vw;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  #messageCard.visible {
+    padding: 16px;
+  }
+
+  #messageText {
+    font-size: 15px;
+  }
+}
+
+/* ==================================================
+   MOBILE OPTIMIZATION
+   Chỉ điều chỉnh hiển thị trên điện thoại; không đổi nội dung
+   hoặc cấu trúc và hiệu ứng chính của các trang.
+   ================================================== */
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (max-width: 600px) {
+  /* Dùng chiều cao màn hình thực tế trên trình duyệt điện thoại */
+  body,
+  main {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .gift-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    padding: max(20px, env(safe-area-inset-top)) 18px
+      max(20px, env(safe-area-inset-bottom));
+    gap: clamp(18px, 4.5vh, 30px);
+    text-align: center;
+  }
+
+  .gift-page h1 {
+    max-width: 100%;
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .gift-container {
+    width: 100%;
+    height: clamp(155px, 25vh, 210px);
+  }
+
+  .gift-box {
+    transform-origin: center;
+    scale: 0.88;
+  }
+
+  #openButton,
+  #nextButton {
+    min-height: 48px;
+    max-width: calc(100vw - 36px);
+    padding: 13px 24px;
+    font-size: 15px;
+    white-space: normal;
+  }
+
+  .hint {
+    max-width: 90%;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* Giữ cây đào ở giữa, dành đủ chỗ cho lời chúc và nút */
+  .surprise-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    padding: max(8px, env(safe-area-inset-top)) 10px
+      max(12px, env(safe-area-inset-bottom));
+    gap: 7px;
+    justify-content: center;
+  }
+
+  .heart-tree {
+    width: 100%;
+    max-width: 100vw;
+    height: clamp(250px, 48dvh, 430px);
+    flex: 0 1 auto;
+    margin: 0;
+    transform: none;
+  }
+
+  #treeCanvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  .wish {
+    width: 100%;
+    margin-top: 2px;
+    padding: 0 5px;
+    font-size: clamp(19px, 5.5vw, 25px);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .message {
+    width: 100%;
+    max-width: 95%;
+    margin-top: 5px;
+    padding: 0 4px;
+    font-size: clamp(13px, 3.7vw, 15px);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  #nextButton {
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  /* Trang 3: tôn trọng vùng an toàn và không để bảng vượt màn hình */
+  .universe-page {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  #space {
+    width: 100%;
+    height: 100%;
+  }
+
+  #messageHeartButton {
+    width: 64px;
+    height: 64px;
+    font-size: 48px;
+  }
+
+  #messageCard {
+    top: 50%;
+    left: 50%;
+    width: min(90vw, 520px);
+    max-height: min(72dvh, 620px);
+    padding: 0 14px;
+    border-radius: 17px;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #messageCard.visible {
+    padding: 15px 14px;
+  }
+
+  .message-icons {
+    font-size: 19px;
+    margin-bottom: 9px;
+  }
+
+  #messageText {
+    font-size: clamp(14px, 3.8vw, 16px);
+    line-height: 1.7;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .message-line {
+    min-height: 1.7em;
+  }
+
+  .decoration {
+    font-size: clamp(19px, 5vw, 26px);
+  }
+}
+
+/* Điện thoại màn hình thấp hoặc xoay ngang */
+@media (max-width: 900px) and (max-height: 500px) {
+  .gift-page {
+    gap: 10px;
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+
+  .gift-container {
+    height: 115px;
+  }
+
+  .gift-box {
+    scale: 0.68;
+  }
+
+  .gift-page h1 {
+    font-size: clamp(18px, 4vw, 24px);
+  }
+
+  .heart-tree {
+    height: 52dvh;
+    max-height: 250px;
+  }
+
+  .surprise-page {
+    gap: 3px;
+  }
+
+  .wish {
+    font-size: clamp(16px, 3vw, 21px);
+  }
+
+  .message {
+    font-size: 12px;
+    line-height: 1.35;
+    margin-top: 1px;
+  }
+
+  #nextButton {
+    min-height: 40px;
+    padding: 8px 20px;
+    margin-top: 2px;
+  }
+
+  #messageCard {
+    top: 50%;
+    max-height: 78dvh;
+  }
+}
+/* ==================================================
+   NÚT CHUYỂN LỜI CHÚC TRANG 3
+   ================================================== */
+
+#nextWishButton {
+  position: absolute;
+
+  top: calc(50% + 200px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  border: 1px solid #ff80df;
+  border-radius: 50%;
+
+  background: rgba(120, 0, 180, 0.7);
+
+  color: white;
+  font-size: 25px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: 0.5s;
+
+  animation: arrowFloat 1.5s ease-in-out infinite;
+}
+
+#nextWishButton.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+@keyframes arrowFloat {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: 8px;
+  }
+}
+/* Khung bao ngoài: chứa khung lời chúc và nút */
+.message-wrapper {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(85vw, 600px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Khung lời chúc */
+#messageCard {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+
+  width: 100%;
+  height: 0;
+  max-height: none;
+
+  overflow: hidden;
+}
+
+/* Nút mũi tên nằm ngoài khung */
+#nextWishButton {
+  display: none;
+  margin-top: 15px;
+
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+
+#nextWishButton.show {
+  display: block;
+}
+
+/* Hiển thị trên điện thoại */
+@media (max-width: 768px) {
+  .message-wrapper {
+    top: 50%;
+    width: 90vw;
+    transform: translate(-50%, -50%);
+  }
+
+  #messageCard {
+    max-height: none;
+    overflow: hidden;
+  }
+}
+
+
+/* ==================================================
+   TRANG 4 - CHỈ CÒN NỀN VŨ TRỤ VÀ TRÁI TIM CHỮ
+   ================================================== */
+
+#universePage.final-page {
+  background: #08020d;
+}
+
+#universePage.final-page #space {
+  filter: none;
+  transform: none;
+}
+
+#universePage.final-page .message-wrapper,
+#universePage.final-page #messageHeartButton {
+  display: none !important;
+}
